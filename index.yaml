@@ -1,0 +1,105 @@
+blueprints:
+  - id: cert-manager
+    displayName: cert-manager
+    description: Automated TLS certificate management for Kubernetes — integrates with Let's Encrypt and private CAs
+    category: security
+    icon: cert-manager
+    tags: [tls, certificates, letsencrypt, security]
+
+  - id: traefik
+    displayName: Traefik
+    description: Cloud-native reverse proxy and ingress controller with automatic HTTPS via Let's Encrypt
+    category: networking
+    icon: traefik
+    tags: [ingress, proxy, networking, loadbalancer]
+
+  - id: metallb
+    displayName: MetalLB
+    description: Bare-metal load-balancer for Kubernetes — assigns external IPs on clusters without cloud load-balancers
+    category: networking
+    icon: metallb
+    tags: [loadbalancer, networking, bare-metal]
+
+  - id: cilium
+    displayName: Cilium
+    description: eBPF-based CNI providing networking, observability and security for Kubernetes clusters
+    category: networking
+    icon: cilium
+    tags: [cni, networking, security, ebpf, observability]
+
+  - id: alertmanager
+    displayName: Alertmanager
+    description: Handles and routes alerts from Prometheus to receivers like email, Slack, or PagerDuty
+    category: monitoring
+    icon: prometheus
+    tags: [monitoring, alerting, prometheus, notifications]
+
+  - id: prometheus
+    displayName: Kube Prometheus Stack
+    description: Full monitoring stack — Prometheus, Grafana, Alertmanager and kube-state-metrics in one chart
+    category: monitoring
+    icon: prometheus
+    tags: [monitoring, metrics, grafana, alerting, prometheus]
+
+  - id: argocd
+    displayName: Argo CD
+    description: Declarative GitOps continuous delivery for Kubernetes — syncs your cluster state from Git
+    category: gitops
+    icon: argocd
+    tags: [gitops, cicd, deployment, continuous-delivery]
+
+  - id: flux-operator
+    displayName: Flux Operator
+    description: Kubernetes operator for managing Flux CD instances declaratively using a FluxInstance CRD
+    category: gitops
+    icon: flux
+    tags: [gitops, flux, cicd, kubernetes, operator]
+
+  - id: metrics-server
+    displayName: Metrics Server
+    description: Cluster-wide aggregator of resource usage data — required for kubectl top and Horizontal Pod Autoscaler
+    category: operations
+    icon: kubernetes
+    tags: [metrics, hpa, autoscaling, monitoring]
+
+  - id: calico
+    displayName: Calico (Tigera Operator)
+    description: Networking and network policy for Kubernetes — CNI plugin with fine-grained security policies
+    category: networking
+    icon: calico
+    tags: [cni, networking, network-policy, security]
+
+  - id: external-secrets-operator
+    displayName: External Secrets Operator
+    description: Synchronizes secrets from AWS Secrets Manager, GCP Secret Manager, Vault, and others into Kubernetes
+    category: security
+    icon: external-secrets
+    tags: [secrets, security, vault, aws, gcp, azure]
+
+  - id: harbor
+    displayName: Harbor
+    description: Cloud-native container and artifact registry with vulnerability scanning, RBAC and replication
+    category: registry
+    icon: harbor
+    tags: [registry, docker, oci, security, scanning]
+
+  - id: kyverno
+    displayName: Kyverno
+    description: Kubernetes-native policy engine — validates, mutates and generates resources using admission webhooks
+    category: security
+    icon: kyverno
+    tags: [policy, security, admission-control, compliance]
+
+  - id: nfs-subdir-external-provisioner
+    displayName: NFS Subdir External Provisioner
+    description: Automatic NFS-based PersistentVolume provisioner — creates subdirectories for each PVC claim
+    category: storage
+    icon: kubernetes
+    tags: [storage, nfs, pvc, provisioner]
+
+  - id: renovate
+    displayName: Renovate
+    description: Automated dependency update tool — keeps Helm charts, container images and package versions current
+    category: operations
+    icon: renovate
+    tags: [dependencies, automation, updates, devops]
