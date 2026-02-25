@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: renovate
+  displayName: Renovate
+  description: Automated dependency update tool — keeps Helm charts, container images and package versions current
+  category: operations
+  icon: renovate
+  tags: [dependencies, automation, updates, devops]
+spec:
+  repository:
+    name: renovate
+    url: https://docs.renovatebot.com/helm-chart/
+  chart:
+    name: renovate/renovate
+    version: "41.0.0"
+  install:
+    release: renovate
+    namespace: renovate
+  values: |
+    cronjob:
+      schedule: "0 * * * *"
+    renovate:
+      config: |
+        {
+          "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+          "platform": "github",
+          "repositories": []
+        }
