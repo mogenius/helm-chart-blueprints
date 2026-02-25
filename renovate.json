@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "labels": ["renovate", "dependencies"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update Helm chart versions in blueprint YAML files",
+      "fileMatch": ["^charts/[^.]+\\.yaml$"],
+      "matchStrings": [
+        "url: (?<registryUrl>https://[^\\n]+)[\\s\\S]+?name: (?:[^/\\n]+)/(?<depName>[^\\n]+)\\s+version: \"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "helm",
+      "versioningTemplate": "helm"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "OCI-based charts are not supported by the helm datasource",
+      "matchFileNames": ["charts/flux-operator.yaml"],
+      "enabled": false
+    },
+    {
+      "description": "Group all blueprint updates into a single PR",
+      "matchFileNames": ["charts/*.yaml"],
+      "groupName": "helm chart blueprints",
+      "groupSlug": "helm-blueprints"
+    }
+  ]
+}
