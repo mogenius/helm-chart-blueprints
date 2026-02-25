@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: harbor
+  displayName: Harbor
+  description: Cloud-native container and artifact registry with vulnerability scanning, RBAC and replication
+  category: registry
+  icon: harbor
+  tags: [registry, docker, oci, security, scanning]
+spec:
+  repository:
+    name: harbor
+    url: https://helm.goharbor.io
+  chart:
+    name: harbor/harbor
+    version: "1.16.2"
+  install:
+    release: harbor
+    namespace: harbor
+  values: |
+    expose:
+      type: ingress
+      tls:
+        enabled: true
+    persistence:
+      enabled: true
+    harborAdminPassword: changeme
