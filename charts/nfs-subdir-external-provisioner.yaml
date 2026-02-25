@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: nfs-subdir-external-provisioner
+  displayName: NFS Subdir External Provisioner
+  description: Automatic NFS-based PersistentVolume provisioner — creates subdirectories for each PVC claim
+  category: storage
+  icon: kubernetes
+  tags: [storage, nfs, pvc, provisioner]
+spec:
+  repository:
+    name: nfs-subdir-external-provisioner
+    url: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+  chart:
+    name: nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
+    version: "4.0.18"
+  install:
+    release: nfs-provisioner
+    namespace: nfs-provisioner
+  values: |
+    nfs:
+      server: 192.168.1.1  # Replace with your NFS server IP
+      path: /exported/path  # Replace with your NFS export path
+    storageClass:
+      name: nfs-client
+      defaultClass: false
