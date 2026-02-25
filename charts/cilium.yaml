@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: cilium
+  displayName: Cilium
+  description: eBPF-based CNI providing networking, observability and security for Kubernetes clusters
+  category: networking
+  icon: cilium
+  tags: [cni, networking, security, ebpf, observability]
+spec:
+  repository:
+    name: cilium
+    url: https://helm.cilium.io
+  chart:
+    name: cilium/cilium
+    version: "1.17.1"
+  install:
+    release: cilium
+    namespace: kube-system
+  values: |
+    kubeProxyReplacement: false
+    hubble:
+      enabled: true
+      relay:
+        enabled: true
+      ui:
+        enabled: true
