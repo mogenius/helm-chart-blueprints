@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: cert-manager
+  displayName: cert-manager
+  description: Automated TLS certificate management for Kubernetes — integrates with Let's Encrypt and private CAs
+  category: security
+  icon: cert-manager
+  tags: [tls, certificates, letsencrypt, security]
+spec:
+  repository:
+    name: jetstack
+    url: https://charts.jetstack.io
+  chart:
+    name: jetstack/cert-manager
+    version: "v1.17.1"
+  install:
+    release: cert-manager
+    namespace: cert-manager
+  values: |
+    crds:
+      enabled: true
