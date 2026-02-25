@@ -10,7 +10,7 @@ metadata:
 spec:
   repository:
     name: renovate
-    url: https://docs.renovatebot.com/helm-chart/
+    url: oci://ghcr.io/renovatebot/helm-charts
   chart:
     name: renovate/renovate
     version: "41.0.0"
