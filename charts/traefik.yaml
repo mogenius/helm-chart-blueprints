@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: traefik
+  displayName: Traefik
+  description: Cloud-native reverse proxy and ingress controller with automatic HTTPS via Let's Encrypt
+  category: networking
+  icon: traefik
+  tags: [ingress, proxy, networking, loadbalancer]
+spec:
+  repository:
+    name: traefik
+    url: https://helm.traefik.io/traefik
+  chart:
+    name: traefik/traefik
+    version: "34.3.0"
+  install:
+    release: traefik
+    namespace: traefik
+  values: |
+    deployment:
+      replicas: 1
+    service:
+      type: LoadBalancer
