@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: calico
+  displayName: Calico (Tigera Operator)
+  description: Networking and network policy for Kubernetes — CNI plugin with fine-grained security policies
+  category: networking
+  icon: calico
+  tags: [cni, networking, network-policy, security]
+spec:
+  repository:
+    name: projectcalico
+    url: https://docs.tigera.io/calico/charts
+  chart:
+    name: projectcalico/tigera-operator
+    version: "v3.29.1"
+  install:
+    release: calico
+    namespace: tigera-operator
+  values: |
+    # Calico is configured via the Installation CRD after the operator is installed
+    installation:
+      enabled: true
