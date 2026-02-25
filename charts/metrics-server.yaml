@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: metrics-server
+  displayName: Metrics Server
+  description: Cluster-wide aggregator of resource usage data — required for kubectl top and Horizontal Pod Autoscaler
+  category: operations
+  icon: kubernetes
+  tags: [metrics, hpa, autoscaling, monitoring]
+spec:
+  repository:
+    name: metrics-server
+    url: https://kubernetes-sigs.github.io/metrics-server
+  chart:
+    name: metrics-server/metrics-server
+    version: "3.12.2"
+  install:
+    release: metrics-server
+    namespace: kube-system
+  values: |
+    args:
+      - --kubelet-insecure-tls
