@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: argocd
+  displayName: Argo CD
+  description: Declarative GitOps continuous delivery for Kubernetes — syncs your cluster state from Git
+  category: gitops
+  icon: argocd
+  tags: [gitops, cicd, deployment, continuous-delivery]
+spec:
+  repository:
+    name: argo
+    url: https://argoproj.github.io/argo-helm
+  chart:
+    name: argo/argo-cd
+    version: "7.8.3"
+  install:
+    release: argocd
+    namespace: argocd
+  values: |
+    server:
+      replicas: 1
+    repoServer:
+      replicas: 1
+    applicationSet:
+      replicas: 1
