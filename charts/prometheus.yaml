@@ -13,7 +13,7 @@ spec:
     url: https://prometheus-community.github.io/helm-charts
   chart:
     name: prometheus-community/kube-prometheus-stack
-    version: "82.4.0"
+    version: "82.4.3"
   install:
     release: kube-prometheus-stack
     namespace: monitoring
