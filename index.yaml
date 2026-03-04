@@ -3,7 +3,7 @@ blueprints:
     displayName: cert-manager
     description: Automated TLS certificate management for Kubernetes — integrates with Let's Encrypt and private CAs
     category: security
-    icon: cert-manager
+    icon: https://raw.githubusercontent.com/cncf/artwork/main/projects/cert-manager/icon/color/cert-manager-icon-color.svg
     tags: [tls, certificates, letsencrypt, security]
 
   - id: traefik
@@ -73,7 +73,7 @@ blueprints:
     displayName: External Secrets Operator
     description: Synchronizes secrets from AWS Secrets Manager, GCP Secret Manager, Vault, and others into Kubernetes
     category: security
-    icon: external-secrets
+    icon: https://raw.githubusercontent.com/cncf/artwork/main/projects/external-secrets-operator/icon/color/eso-icon-color.svg
     tags: [secrets, security, vault, aws, gcp, azure]
 
   - id: harbor
@@ -87,7 +87,7 @@ blueprints:
     displayName: Kyverno
     description: Kubernetes-native policy engine — validates, mutates and generates resources using admission webhooks
     category: security
-    icon: kyverno
+    icon: https://raw.githubusercontent.com/cncf/artwork/main/projects/kyverno/icon/color/kyverno-icon-color.svg
     tags: [policy, security, admission-control, compliance]
 
   - id: nfs-subdir-external-provisioner
