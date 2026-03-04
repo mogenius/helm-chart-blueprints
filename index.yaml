@@ -17,7 +17,7 @@ blueprints:
     displayName: MetalLB
     description: Bare-metal load-balancer for Kubernetes — assigns external IPs on clusters without cloud load-balancers
     category: networking
-    icon: metallb
+    icon: https://raw.githubusercontent.com/cncf/artwork/main/projects/metallb/icon/color/metallb-icon-color.svg
     tags: [loadbalancer, networking, bare-metal]
 
   - id: cilium
@@ -45,7 +45,7 @@ blueprints:
     displayName: Argo CD
     description: Declarative GitOps continuous delivery for Kubernetes — syncs your cluster state from Git
     category: gitops
-    icon: argocd
+    icon: argo
     tags: [gitops, cicd, deployment, continuous-delivery]
 
   - id: flux-operator
