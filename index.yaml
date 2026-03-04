@@ -10,7 +10,7 @@ blueprints:
     displayName: Traefik
     description: Cloud-native reverse proxy and ingress controller with automatic HTTPS via Let's Encrypt
     category: networking
-    icon: traefik
+    icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
     tags: [ingress, proxy, networking, loadbalancer]
 
   - id: metallb
