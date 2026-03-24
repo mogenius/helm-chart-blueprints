@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: renovate-operator
+  displayName: Renovate Operator
+  description: Automated dependency update tool — keeps Helm charts, container images and package versions current
+  category: operations
+  icon: renovate
+  tags: [dependencies, automation, updates, devops]
+spec:
+  repository:
+    name: mogenius
+    url: https://helm.mogenius.com/public
+  chart:
+    name: renovate-operator
+    version: "3.8.4"
+  install:
+    release: renovate-operator
+    namespace: renovate-operator
+  values: ""

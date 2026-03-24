@@ -97,8 +97,8 @@ blueprints:
     icon: kubernetes
     tags: [storage, nfs, pvc, provisioner]
 
-  - id: renovate
-    displayName: Renovate
+  - id: renovate-operator
+    displayName: Renovate Operator
     description: Automated dependency update tool — keeps Helm charts, container images and package versions current
     category: operations
     icon: renovate
