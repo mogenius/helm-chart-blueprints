@@ -12,7 +12,7 @@ spec:
     name: mogenius
     url: https://helm.mogenius.com/public
   chart:
-    name: renovate-operator
+    name: mogenius/renovate-operator
     version: "3.8.4"
   install:
     release: renovate-operator
