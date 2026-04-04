@@ -103,3 +103,10 @@ blueprints:
     category: operations
     icon: renovate
     tags: [dependencies, automation, updates, devops]
+
+  - id: podinfo
+    displayName: Podinfo
+    description: Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes
+    category: demo
+    icon: podinfo
+    tags: [demo]
