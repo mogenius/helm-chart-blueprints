@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: podinfo
+  displayName: Podinfo
+  description: Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes
+  category: demo
+  icon: podinfo
+  tags: [demo]
+spec:
+  repository:
+    name: podinfo
+    url: https://stefanprodan.github.io/podinfo
+  chart:
+    name: podinfo/podinfo
+    version: "6.11.2"
+  install:
+    release: podinfo
+    namespace: podinfo
+  values: ""
