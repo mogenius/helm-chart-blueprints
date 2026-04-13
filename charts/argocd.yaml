@@ -13,7 +13,7 @@ spec:
     url: https://argoproj.github.io/argo-helm
   chart:
     name: argo/argo-cd
-    version: "9.4.17"
+    version: "9.5.0"
   install:
     release: argocd
     namespace: argocd
