@@ -13,7 +13,7 @@ spec:
     url: https://docs.tigera.io/calico/charts
   chart:
     name: projectcalico/tigera-operator
-    version: "v3.31.4"
+    version: "v3.31.5"
   install:
     release: calico
     namespace: tigera-operator
