@@ -13,7 +13,7 @@ spec:
     url: https://stefanprodan.github.io/podinfo
   chart:
     name: podinfo/podinfo
-    version: "6.11.2"
+    version: "6.12.0"
   install:
     release: podinfo
     namespace: podinfo
