@@ -13,7 +13,7 @@ spec:
     url: https://kyverno.github.io/kyverno
   chart:
     name: kyverno/kyverno
-    version: "3.8.0"
+    version: "3.8.1"
   install:
     release: kyverno
     namespace: kyverno
