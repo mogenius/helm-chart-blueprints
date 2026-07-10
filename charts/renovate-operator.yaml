@@ -13,7 +13,7 @@ spec:
     url: https://helm.mogenius.com/public
   chart:
     name: mogenius/renovate-operator
-    version: "4.10.1"
+    version: "5.2.0"
   install:
     release: renovate-operator
     namespace: renovate-operator
