@@ -23,6 +23,7 @@ Pre-configured Helm chart blueprints for the [mogenius](https://mogenius.com) pl
 | Kyverno | Security | `kyverno/kyverno` |
 | NFS Subdir External Provisioner | Storage | `nfs-subdir-external-provisioner/...` |
 | Renovate Operator | Operations | `mogenius/renovate-operator` |
+| Agent Sandbox | AI | `mogenius/mogenius-agent-sandbox` |
 | Podinfo | Demo | `podinfo/podinfo` |
 
 ---

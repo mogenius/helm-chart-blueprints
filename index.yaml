@@ -104,6 +104,13 @@ blueprints:
     icon: renovate
     tags: [dependencies, automation, updates, devops]
 
+  - id: agent-sandbox
+    displayName: Agent Sandbox
+    description: Complete agent sandbox system in one step — kubernetes-sigs/agent-sandbox controller with extensions, locked-down sandbox namespace and a default profile with a warm pool of pre-started sandboxes
+    category: ai
+    icon: https://raw.githubusercontent.com/kubernetes-sigs/agent-sandbox/main/site/assets/icons/color_logo.svg
+    tags: [ai, agents, sandbox, isolation, warmpool]
+
   - id: podinfo
     displayName: Podinfo
     description: Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes

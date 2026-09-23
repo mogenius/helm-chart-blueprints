@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: agent-sandbox
+  displayName: Agent Sandbox
+  description: >-
+    Brings up the complete agent sandbox system on this cluster in one step: the
+    kubernetes-sigs/agent-sandbox controller with extensions, a locked-down sandbox
+    namespace and a default sandbox profile with a warm pool of pre-started sandboxes.
+    Sandboxes are reachable through mogenius (terminal, SSH, port-forward) and the
+    mogenius Sandbox SDK claims from the default pool.
+  category: ai
+  icon: https://raw.githubusercontent.com/kubernetes-sigs/agent-sandbox/main/site/assets/icons/color_logo.svg
+  tags: [ai, agents, sandbox, isolation, warmpool]
+spec:
+  repository:
+    name: mogenius
+    url: https://helm.mogenius.com/public
+  chart:
+    name: mogenius/mogenius-agent-sandbox
+    version: "1.1.5"
+  install:
+    release: agent-sandbox
+    # Upstream expects the controller here; do not change.
+    namespace: agent-sandbox-system
+  values: |
+    sandboxes:
+      # Namespace the sandbox pods live in (created by the chart).
+      namespace:
+        name: agent-sandbox
+
+      # RuntimeClass for extra isolation, e.g. "gvisor" on GKE Sandbox.
+      # Leave empty on clusters without one (Docker Desktop, kind), a pod
+      # asking for a missing RuntimeClass never starts.
+      runtimeClassName: ""
+
+      networkPolicy:
+        # Egress: internet only, RFC1918 and link-local denied by default.
+        # Service CIDRs outside RFC1918 need listing, e.g. GKE: 34.118.224.0/20
+        additionalBlockedCidrs: []
+
+      profiles:
+        default:
+          # Image: the chart default (images/sandbox-default: VS Code in the
+          # browser on 8080 plus Python 3, uv, Node.js, git). Not pinned here
+          # on purpose, so chart upgrades move the image along; set
+          # `image:` only to run something else.
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+          storage:
+            size: 1Gi
+          warmPool:
+            # Pre-started sandboxes kept ready for instant claims. 0 disables the pool.
+            replicas: 1
+
+        # Optional second profile: an opencode agent server. It reads the same
+        # `sandbox-provider-keys` Secret the Sandboxes page manages.
+        opencode:
+          enabled: false
+          warmPool:
+            replicas: 0
