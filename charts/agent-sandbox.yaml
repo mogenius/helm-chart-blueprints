@@ -18,7 +18,7 @@ spec:
     url: https://helm.mogenius.com/public
   chart:
     name: mogenius/mogenius-agent-sandbox
-    version: "1.1.5"
+    version: "1.2.0"
   install:
     release: agent-sandbox
     # Upstream expects the controller here; do not change.
