@@ -17,6 +17,8 @@ spec:
   install:
     release: my-project
     namespace: mogenius-projects
+  # Only projectName and department are exposed to the user. Everything else
+  # (github, registry, quota) uses the chart defaults and is not shown here.
   values: |
     # The project / tenant name. REQUIRED.
     # Becomes the namespace, the GitHub repo name and the prefix of every
@@ -26,22 +28,3 @@ spec:
     # Department — selects which Entra app users are synced to.
     # Must match a key in the project-departments ConfigMap. Default: all.
     department: all
-
-    # GitHub repository created for the project.
-    github:
-      owner: mogenius
-      templateOwner: mogenius
-      templateRepo: gh-custom-template
-      visibility: private   # public | private | internal
-
-    # Registry that kpack pushes the built image to.
-    registry: ghcr.io/mogenius
-
-    # ResourceQuota hard limits for the tenant namespace.
-    quota:
-      requestsCpu: "2"
-      requestsMemory: 4Gi
-      limitsCpu: "4"
-      limitsMemory: 8Gi
-      pods: "50"
-      persistentVolumeClaims: "0"
