@@ -1,4 +1,11 @@
 blueprints:
+  - id: project
+    displayName: mogenius Project
+    description: Provision a complete app setup in one step — private GitHub repo, Entra-protected example app via ArgoCD, automatic image build & push on every commit, and automated dependency updates
+    category: platform
+    icon: https://raw.githubusercontent.com/cncf/artwork/main/projects/crossplane/icon/color/crossplane-icon-color.svg
+    tags: [project, gitops, argocd, kpack, crossplane, platform]
+
   - id: cert-manager
     displayName: cert-manager
     description: Automated TLS certificate management for Kubernetes — integrates with Let's Encrypt and private CAs

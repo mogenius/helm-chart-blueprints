@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: project
+  displayName: mogenius Project
+  description: Provision a complete app setup in one step — a private GitHub repo from a template, an Entra-protected example app rolled out via ArgoCD, automatic image build & push on every commit (kpack) and automated dependency updates. Just pick a name and a department.
+  category: platform
+  icon: https://raw.githubusercontent.com/cncf/artwork/main/projects/crossplane/icon/color/crossplane-icon-color.svg
+  tags: [project, gitops, argocd, kpack, crossplane, platform]
+spec:
+  repository:
+    name: janlepsky-apps
+    url: https://janlepsky.github.io/helm-chart-blueprints
+  chart:
+    name: janlepsky-apps/project
+    version: "0.1.0"
+  install:
+    release: my-project
+    namespace: mogenius-projects
+  values: |
+    # The project / tenant name. REQUIRED.
+    # Becomes the namespace, the GitHub repo name and the prefix of every
+    # generated resource. Lowercase DNS name, 3–63 characters.
+    projectName: ""
+
+    # Department — selects which Entra app users are synced to.
+    # Must match a key in the project-departments ConfigMap. Default: all.
+    department: all
+
+    # GitHub repository created for the project.
+    github:
+      owner: mogenius
+      templateOwner: mogenius
+      templateRepo: gh-custom-template
+      visibility: private   # public | private | internal
+
+    # Registry that kpack pushes the built image to.
+    registry: ghcr.io/mogenius
+
+    # ResourceQuota hard limits for the tenant namespace.
+    quota:
+      requestsCpu: "2"
+      requestsMemory: 4Gi
+      limitsCpu: "4"
+      limitsMemory: 8Gi
+      pods: "50"
+      persistentVolumeClaims: "0"
