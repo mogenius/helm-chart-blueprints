@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: HelmBlueprint
+metadata:
+  id: mogenius-integration-fluxcd
+  displayName: mogenius Flux CD Integration
+  description: Connects mogenius with Flux CD to surface GitOps reconciliation state in the mogenius UI
+  category: ui-components
+  icon: https://avatars.githubusercontent.com/u/92862356
+  tags: [mogenius, fluxcd, gitops, integration]
+spec:
+  repository:
+    name: mogenius-oci
+    url: oci://ghcr.io/mogenius/helm-charts
+  chart:
+    name: mogenius-oci/mogenius-integration-fluxcd
+    version: "0.2.0"
+  install:
+    release: mogenius-integration-fluxcd
+    namespace: mogenius
+  values: ""
