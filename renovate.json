@@ -27,10 +27,11 @@
         "/^charts/[^.]+\\.yaml$/"
       ],
       "matchStrings": [
-        "url: oci://(?<registryUrl>[^\\n]+)[\\s\\S]+?name: (?:[^/\\n]+)/(?<depName>[^\\n]+)\\s+version: \"(?<currentValue>[^\"]+)\""
+        "url: oci://(?<registryUrl>[^/\\n]+)/(?<ociPath>[^\\n]+)[\\s\\S]+?name: (?:[^/\\n]+)/(?<depName>[^\\n]+)\\s+version: \"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "docker",
-      "depNameTemplate": "{{registryUrl}}/{{depName}}",
+      "registryUrlTemplate": "https://{{registryUrl}}",
+      "depNameTemplate": "{{ociPath}}/{{depName}}",
       "versioningTemplate": "docker"
     }
   ],
