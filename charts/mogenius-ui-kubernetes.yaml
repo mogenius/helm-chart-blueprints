@@ -13,7 +13,7 @@ spec:
     url: oci://ghcr.io/mogenius/helm-charts
   chart:
     name: mogenius-oci/mogenius-ui-kubernetes
-    version: "0.2.1"
+    version: "0.3.0"
   install:
     release: mogenius-ui-kubernetes
     namespace: mogenius

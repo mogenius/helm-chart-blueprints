@@ -13,7 +13,7 @@ spec:
     url: oci://ghcr.io/mogenius/helm-charts
   chart:
     name: mogenius-oci/mogenius-integration-argocd
-    version: "0.2.0"
+    version: "0.3.0"
   install:
     release: mogenius-integration-argocd
     namespace: mogenius
