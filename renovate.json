@@ -10,7 +10,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Update Helm chart versions in blueprint YAML files",
+      "description": "Update Helm chart versions in blueprint YAML files (HTTP repositories)",
       "managerFilePatterns": [
         "/^charts/[^.]+\\.yaml$/"
       ],
@@ -19,16 +19,22 @@
       ],
       "datasourceTemplate": "helm",
       "versioningTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "description": "Update OCI Helm chart versions in blueprint YAML files",
+      "managerFilePatterns": [
+        "/^charts/[^.]+\\.yaml$/"
+      ],
+      "matchStrings": [
+        "url: oci://(?<registryUrl>[^\\n]+)[\\s\\S]+?name: (?:[^/\\n]+)/(?<depName>[^\\n]+)\\s+version: \"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "{{registryUrl}}/{{depName}}",
+      "versioningTemplate": "docker"
     }
   ],
   "packageRules": [
-    {
-      "description": "OCI-based charts are not supported by the helm datasource",
-      "matchFileNames": [
-        "charts/flux-operator.yaml"
-      ],
-      "enabled": false
-    },
     {
       "description": "Group all blueprint updates into a single PR",
       "matchFileNames": [
