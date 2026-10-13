@@ -23,8 +23,40 @@ Pre-configured Helm chart blueprints for the [mogenius](https://mogenius.com) pl
 | Kyverno | Security | `kyverno/kyverno` |
 | NFS Subdir External Provisioner | Storage | `nfs-subdir-external-provisioner/...` |
 | Renovate Operator | Operations | `mogenius/renovate-operator` |
-| Agent Sandbox | AI | `mogenius/mogenius-agent-sandbox` |
 | Podinfo | Demo | `podinfo/podinfo` |
+
+---
+
+## Retired Blueprints
+
+| Blueprint | Retired | Replacement |
+|---|---|---|
+| Agent Sandbox | 2026-10 | PlatformConfig component `agentSandboxes` |
+
+### Agent Sandbox → `agentSandboxes` PlatformConfig component
+
+The standalone **Agent Sandbox** blueprint was removed. Agent sandboxes are now a
+first-class platform component, enabled per cluster under **Cluster Settings →
+Platform Config** (the `agentSandboxes` component). The operator delivers the same
+`mogenius/mogenius-agent-sandbox` chart through GitOps instead of a one-off
+`helm install`.
+
+**Prerequisite:** the component is only delivered on clusters running a GitOps
+engine (Argo CD or Flux). A cluster without one cannot enable it.
+
+**Migrating a cluster that used the blueprint:** the component installs the *same*
+Helm release (`agent-sandbox`) into the *same* namespace (`agent-sandbox-system`)
+as the old blueprint, but via an Argo CD `Application` rather than a direct
+`helm install`. Leaving the old release in place means two owners for the same
+resources. Uninstall the blueprint release first, then enable the component:
+
+```sh
+helm uninstall agent-sandbox -n agent-sandbox-system
+# then enable the `agentSandboxes` component in Cluster Settings → Platform Config
+```
+
+The sandbox namespace, the default SandboxTemplate, the warm pool and the
+per-sandbox NetworkPolicies are recreated by the component.
 
 ---
 
