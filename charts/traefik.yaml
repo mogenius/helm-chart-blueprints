@@ -13,7 +13,7 @@ spec:
     url: https://helm.traefik.io/traefik
   chart:
     name: traefik/traefik
-    version: "41.7.1"
+    version: "42.1.2"
   install:
     release: traefik
     namespace: traefik
